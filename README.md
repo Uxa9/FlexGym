@@ -1,1 +1,1 @@
-# FlexGym
+# flexgym

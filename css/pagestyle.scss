@@ -1,0 +1,356 @@
+$c1 : #FFFFFF;
+$c2 : #102542;
+$c3 : #160C28;
+$c4 : #DE1B0A;
+$c5 : #FFC857;
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 200;
+}
+
+.header
+{
+	background: $c2;
+
+	.mobileMenu
+	{
+		.menuIcon
+		{
+			position: absolute;
+			background: $c5;
+			width: 90px;
+			height: 90px;
+			right: 15px;
+			top: 15px;
+
+			.sticks, .sticks::before, .sticks::after
+			{
+				display: block;
+				content: "";
+				position: absolute;
+				top: 40px;
+				left: 10px;
+				background: $c2;
+				width: 70px;
+				height: 10px;
+			}
+
+			.sticks::after
+			{
+				position: absolute;
+				left: 0px;
+				top: -20px;
+			}
+
+			.sticks::before
+			{
+				position: absolute;
+				left: 0px;
+				top: 20px;
+			}
+		}
+	}
+}
+
+.footer
+{
+	background: $c3;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	color: $c1;
+	padding: 15px 10px 5px 10px;
+
+	p
+	{
+		display: flex;
+		flex-flow: column nowrap;
+	}
+}
+
+.goTop
+{
+	.goTopCircle
+	{
+		display: block;
+		content: "";
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+		width: 120px;
+		height: 120px;
+		border-radius: 100px;
+		background: $c3;
+		z-index: 9999;
+
+		.arrow
+		{
+			&::before, &::after
+			{
+				display: block;
+				content: "";
+				position: absolute;
+				left: 43%;
+				top: 33px;
+				width: 50px;
+				height: 14px;
+				border-radius: 100px;
+				transform: rotate(35deg);
+				background: $c5;
+			}
+
+			&::after
+			{
+				left: 17%;
+				transform: rotate(-215deg);
+			}
+
+			&:nth-child(2)
+			{
+				&::before, &::after
+				{
+					top: 65px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1100px)
+{
+	.breaker
+	{
+		position: absolute;
+		display: block;
+		content: "";
+		width: 3px;
+		height: 40px;
+		background: $c1;
+	}
+
+	.header
+	{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		padding: 10px 20px;
+
+		.mobileMenu
+		{
+			.menuIcon
+			{
+				display: none;
+			}	
+		}
+
+		.nav
+		{
+			width: 75%;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-around;
+			align-items: flex-end;
+
+			a
+			{
+				&:nth-child(1)
+				{
+					width: 27%;
+				}
+				&:nth-child(2)
+				{
+					width: 45%;
+				}
+				&:nth-child(3)
+				{
+					width: 33%;
+				}
+				text-align: center;
+				position: relative;
+				text-decoration: none;
+				color: $c1;
+				font-size: 40px;
+
+				&:nth-child(2)
+				{
+					&::after
+					{
+						@extend .breaker;
+						left: 0px;
+						top: 4px;
+					}
+					&::before
+					{
+						@extend .breaker;
+						right: 0px;
+						top: 4px;
+					}
+				}
+
+				&:nth-child(odd)
+				{
+					color: $c5;
+				}
+
+				&:hover
+				{
+					color: $c4;
+				}
+			}
+		}
+
+		.cab
+		{
+			height: 100%;
+			display: flex;
+			flex-flow: column nowrap;
+			align-items: flex-end;
+			justify-content: flex-end;
+			padding-bottom: 30px;
+
+			p
+			{
+				color: $c1;
+				padding-bottom: 8px;
+				text-align: right;
+			}
+
+			.login
+			{
+				a
+				{
+					color: $c5;	
+					text-decoration: none;
+
+					&:hover
+					{
+						color: $c4;
+					}
+				}
+				position: relative;;
+
+				&::before
+				{
+					@extend .breaker;
+					height: 25px;
+					left: -10px;
+					top: -4px;
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: 1100px)
+{
+	.header
+	{
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		padding-top: 15px;
+
+		&::before
+		{
+			position: absolute;
+			display: block;
+			content: "";
+			width: 100%;
+			height: 400px;
+			top: 100px;
+			left: 0px;
+			background: $c5;
+			z-index: 11000;
+		}
+
+		.mobileMenu
+		{
+			.menuIcon
+			{
+				display: block;
+			}	
+		}
+
+		.nav
+		{
+			display: flex;
+			flex-flow: column nowrap;
+			align-items: center;
+			padding-top: 40px;
+
+			a
+			{
+				text-align: center;
+				text-decoration: none;
+				color: $c1;
+				font-size: 40px;
+				font-weight: 400;
+				z-index: 9999;
+				padding-bottom: 25px;
+
+				&:nth-child(even)
+				{
+					color: $c4;
+				}
+
+				&:hover
+				{
+					color: $c2;
+				}
+			}
+		}
+
+		.cab
+		{
+			height: 100%;
+			display: flex;
+			flex-flow: column nowrap;
+			align-items: center;
+			padding-top: 30px;
+			position: relative;
+			z-index: 9998;
+
+			&::before
+			{
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0px;
+				left: unquote("-webkit-calc(50% - 150px)");
+				background: $c2;
+				width: 300px;
+				height: 5px;
+			}
+
+			p
+			{
+				color: $c2;
+				padding-bottom: 15px;
+				font-size: 24px;
+			}
+
+			.login
+			{
+				a
+				{
+					color: $c4;
+					text-decoration: none;
+					font-size: 40px;
+					font-weight: 400;
+
+					&:hover
+					{
+						color: $c2;
+					}
+				}
+			}
+		}
+	}
+}
